@@ -9,8 +9,12 @@ import os
 import math
 import time
 import joblib
-import numpy as np
-import pandas as pd
+try:
+    import numpy as np
+    import pandas as pd
+except ImportError:
+    np = None
+    pd = None
 
 from bootstrap_flask import Bootstrap5
 # ── Geopy: graceful import so the app boots even without the package installed ──
@@ -52,11 +56,9 @@ login_manager.login_view = "login"
 # ═══════════════════════════════════════════════════════════════
 try:
     ml_model = joblib.load('flashmap_master_model.pkl')
-    print("✅  FlashMap ML Model loaded.")
 except Exception as e:
     ml_model = None
-    print(f"⚠️   ML model not found ({e}). Time-based fallback active.")
-
+    print(f"ML model not loaded: {e}")
 
 # ═══════════════════════════════════════════════════════════════
 #  STATIC LOOKUP TABLES
