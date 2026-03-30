@@ -9,3 +9,4 @@ python-dotenv==1.0.1
 geopy==2.4.1
 joblib==1.4.2
 gunicorn==22.0.0
+email-validator==2.1.1
