@@ -16,7 +16,7 @@ except ImportError:
     np = None
     pd = None
 
-from bootstrap_flask import Bootstrap5
+from flask_bootstrap import Bootstrap5
 # ── Geopy: graceful import so the app boots even without the package installed ──
 try:
     from geopy.geocoders import Nominatim
