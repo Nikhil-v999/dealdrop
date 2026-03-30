@@ -17,10 +17,13 @@ Architecture:
 
 import math
 import threading
-import numpy as np
+
 from datetime import datetime, timezone, timedelta
 from functools import lru_cache
-
+try:
+    import numpy as np
+except ImportError:
+    np = None
 
 # ── Lazy imports so the app boots even if sentence-transformers isn't installed ──
 _st_model = None
